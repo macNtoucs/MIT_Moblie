@@ -207,6 +207,17 @@
 		BD1E930D103B5D60004429AA /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1E92FE103B5D60004429AA /* SBJsonParser.m */; };
 		BD1E930E103B5D60004429AA /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1E9300103B5D60004429AA /* SBJsonWriter.m */; };
 		BD9FA7EE1047A05E00BC3C0A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9FA7ED1047A05E00BC3C0A /* MessageUI.framework */; };
+		C74401851612C24000882D79 /* NTOUTableViewControllerLayer1.m in Sources */ = {isa = PBXBuildFile; fileRef = C74401841612C23F00882D79 /* NTOUTableViewControllerLayer1.m */; };
+		C74401881612D14E00882D79 /* NTOUTableViewControllerLayer2.m in Sources */ = {isa = PBXBuildFile; fileRef = C74401871612D14D00882D79 /* NTOUTableViewControllerLayer2.m */; };
+		C744018B1612D1B200882D79 /* NTOUTableViewControllerLayer3.m in Sources */ = {isa = PBXBuildFile; fileRef = C744018A1612D1B000882D79 /* NTOUTableViewControllerLayer3.m */; };
+		C74401901612D8E000882D79 /* RouteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C744018D1612D8DB00882D79 /* RouteDetailViewController.m */; };
+		C74401911612D8E000882D79 /* DepatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C744018F1612D8DE00882D79 /* DepatureViewController.m */; };
+		C74401981612D91900882D79 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = C74401931612D91100882D79 /* TFHpple.m */; };
+		C74401991612D91900882D79 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = C74401951612D91500882D79 /* TFHppleElement.m */; };
+		C744019A1612D91900882D79 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = C74401971612D91800882D79 /* XPathQuery.m */; };
+		C744019D1612D94400882D79 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C744019C1612D94300882D79 /* EGORefreshTableHeaderView.m */; };
+		C74401A01613DC0900882D79 /* StopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C744019F1613DC0700882D79 /* StopsViewController.m */; };
+		C74401AB1616EE4000882D79 /* StopsLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C74401AA1616EE2C00882D79 /* StopsLocationMapViewController.m */; };
 		DE03763C1350F5080041DDBD /* MIT150Button.m in Sources */ = {isa = PBXBuildFile; fileRef = DE03763B1350F5080041DDBD /* MIT150Button.m */; };
 		DE0A62AC10CDAEA90058B2C2 /* MITBuildInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0A62AB10CDAEA90058B2C2 /* MITBuildInfo.m */; };
 		DE0F6B3411109BC500F064D6 /* AboutMITVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0F6B3311109BC500F064D6 /* AboutMITVC.m */; };
@@ -784,6 +795,28 @@
 		BD1E92FF103B5D60004429AA /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		BD1E9300103B5D60004429AA /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		BD9FA7ED1047A05E00BC3C0A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C74401831612C23E00882D79 /* NTOUTableViewControllerLayer1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTOUTableViewControllerLayer1.h; sourceTree = "<group>"; };
+		C74401841612C23F00882D79 /* NTOUTableViewControllerLayer1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTOUTableViewControllerLayer1.m; sourceTree = "<group>"; };
+		C74401861612D14C00882D79 /* NTOUTableViewControllerLayer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTOUTableViewControllerLayer2.h; sourceTree = "<group>"; };
+		C74401871612D14D00882D79 /* NTOUTableViewControllerLayer2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTOUTableViewControllerLayer2.m; sourceTree = "<group>"; };
+		C74401891612D1AF00882D79 /* NTOUTableViewControllerLayer3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTOUTableViewControllerLayer3.h; sourceTree = "<group>"; };
+		C744018A1612D1B000882D79 /* NTOUTableViewControllerLayer3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTOUTableViewControllerLayer3.m; sourceTree = "<group>"; };
+		C744018C1612D8DA00882D79 /* RouteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteDetailViewController.h; sourceTree = "<group>"; };
+		C744018D1612D8DB00882D79 /* RouteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteDetailViewController.m; sourceTree = "<group>"; };
+		C744018E1612D8DD00882D79 /* DepatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepatureViewController.h; sourceTree = "<group>"; };
+		C744018F1612D8DE00882D79 /* DepatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepatureViewController.m; sourceTree = "<group>"; };
+		C74401921612D91000882D79 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		C74401931612D91100882D79 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		C74401941612D91300882D79 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		C74401951612D91500882D79 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		C74401961612D91600882D79 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		C74401971612D91800882D79 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		C744019B1612D94100882D79 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		C744019C1612D94300882D79 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		C744019E1613DC0500882D79 /* StopsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopsViewController.h; sourceTree = "<group>"; };
+		C744019F1613DC0700882D79 /* StopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsViewController.m; sourceTree = "<group>"; };
+		C74401A91616EE2000882D79 /* StopsLocationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopsLocationMapViewController.h; sourceTree = "<group>"; };
+		C74401AA1616EE2C00882D79 /* StopsLocationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsLocationMapViewController.m; sourceTree = "<group>"; };
 		DE03763A1350F5080041DDBD /* MIT150Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIT150Button.h; sourceTree = "<group>"; };
 		DE03763B1350F5080041DDBD /* MIT150Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIT150Button.m; sourceTree = "<group>"; };
 		DE0A62AA10CDAEA90058B2C2 /* MITBuildInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MITBuildInfo.h; sourceTree = "<group>"; };
@@ -2061,6 +2094,26 @@
 		DE715449102FE468005E6111 /* ShuttleTrack */ = {
 			isa = PBXGroup;
 			children = (
+				C744019B1612D94100882D79 /* EGORefreshTableHeaderView.h */,
+				C744019C1612D94300882D79 /* EGORefreshTableHeaderView.m */,
+				C74401921612D91000882D79 /* TFHpple.h */,
+				C74401931612D91100882D79 /* TFHpple.m */,
+				C74401941612D91300882D79 /* TFHppleElement.h */,
+				C74401951612D91500882D79 /* TFHppleElement.m */,
+				C74401961612D91600882D79 /* XPathQuery.h */,
+				C74401971612D91800882D79 /* XPathQuery.m */,
+				C744019E1613DC0500882D79 /* StopsViewController.h */,
+				C744019F1613DC0700882D79 /* StopsViewController.m */,
+				C744018C1612D8DA00882D79 /* RouteDetailViewController.h */,
+				C744018D1612D8DB00882D79 /* RouteDetailViewController.m */,
+				C744018E1612D8DD00882D79 /* DepatureViewController.h */,
+				C744018F1612D8DE00882D79 /* DepatureViewController.m */,
+				C74401831612C23E00882D79 /* NTOUTableViewControllerLayer1.h */,
+				C74401841612C23F00882D79 /* NTOUTableViewControllerLayer1.m */,
+				C74401861612D14C00882D79 /* NTOUTableViewControllerLayer2.h */,
+				C74401871612D14D00882D79 /* NTOUTableViewControllerLayer2.m */,
+				C74401891612D1AF00882D79 /* NTOUTableViewControllerLayer3.h */,
+				C744018A1612D1B000882D79 /* NTOUTableViewControllerLayer3.m */,
 				DE6D332910346F6D008A5823 /* ShuttleRoutes.h */,
 				DE6D332A10346F6D008A5823 /* ShuttleRoutes.m */,
 				44BF5B411100A75C00E150D5 /* RouteInfoTitleCell.h */,
@@ -2089,6 +2142,8 @@
 				442C1CA210F4FE8900CB44EC /* ShuttleLocation.m */,
 				29EB610910FE47220085D32B /* ShuttleSubscriptionManager.h */,
 				29EB610A10FE47220085D32B /* ShuttleSubscriptionManager.m */,
+				C74401A91616EE2000882D79 /* StopsLocationMapViewController.h */,
+				C74401AA1616EE2C00882D79 /* StopsLocationMapViewController.m */,
 			);
 			path = ShuttleTrack;
 			sourceTree = "<group>";
@@ -2972,6 +3027,17 @@
 				2CA91F9915CB03BB00C03732 /* MITScannerHelpViewController.m in Sources */,
 				2CDB024E15D0403500436B59 /* QRReaderResult.m in Sources */,
 				2CDB025115D0404500436B59 /* MITScannerImage.m in Sources */,
+				C74401851612C24000882D79 /* NTOUTableViewControllerLayer1.m in Sources */,
+				C74401881612D14E00882D79 /* NTOUTableViewControllerLayer2.m in Sources */,
+				C744018B1612D1B200882D79 /* NTOUTableViewControllerLayer3.m in Sources */,
+				C74401901612D8E000882D79 /* RouteDetailViewController.m in Sources */,
+				C74401911612D8E000882D79 /* DepatureViewController.m in Sources */,
+				C74401981612D91900882D79 /* TFHpple.m in Sources */,
+				C74401991612D91900882D79 /* TFHppleElement.m in Sources */,
+				C744019A1612D91900882D79 /* XPathQuery.m in Sources */,
+				C744019D1612D94400882D79 /* EGORefreshTableHeaderView.m in Sources */,
+				C74401A01613DC0900882D79 /* StopsViewController.m in Sources */,
+				C74401AB1616EE4000882D79 /* StopsLocationMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,7 +42,7 @@
 						"</body>"
 						"</html>" retain];
 	
-	self.htmlString = [NSString stringWithFormat:htmlFormatString, @"Loading..."];
+	self.htmlString = [NSString stringWithFormat:htmlFormatString, @"目前無緊急事件"];
     
 	[self.tableView applyStandardColors];
 }

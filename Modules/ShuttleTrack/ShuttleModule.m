@@ -3,9 +3,8 @@
 #import "ShuttleRouteViewController.h"
 #import "ShuttleSubscriptionManager.h"
 #import "ShuttleStopMapAnnotation.h"
-
 #import "MITModule+Protected.h"
-
+#import "NTOUTableViewControllerLayer1.h"
 @implementation ShuttleModule
 
 - (id) init {
@@ -22,7 +21,7 @@
 
 - (void)loadModuleHomeController
 {
-    [self setModuleHomeController:[[[ShuttleRoutes alloc] initWithStyle:UITableViewStyleGrouped] autorelease]];
+    [self setModuleHomeController:[[[NTOUTableViewControllerLayer1 alloc] initWithStyle:UITableViewStyleGrouped] autorelease]];
 }
 
 - (void) didAppear {
