@@ -11,7 +11,7 @@
 #import "TFHpple.h"
 #import "DepatureViewController.h"
 
-@interface RouteDetailViewController : UITableViewController<UIApplicationDelegate>
+@interface RouteDetailViewController : UITableViewController<UIApplicationDelegate,EGORefreshTableHeaderDelegate>
 {
          NSMutableArray *item;
          NSURL* waitTime1_103;
@@ -19,6 +19,11 @@
         NSURL* waitTime1_104;
         NSURL* waitTime2_104;
     BOOL dir;
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
+    UIBarButtonItem *anotherButton;
+    NSTimer * refreshTimer;
+    NSDate * lastRefresh;
     
 }
 
@@ -34,5 +39,8 @@
 @property (nonatomic ,retain)  NSURL* waitTime2_103;
 @property (nonatomic ,retain)  NSURL* waitTime1_104;
 @property (nonatomic ,retain)  NSURL* waitTime2_104;
+@property (nonatomic, retain) UIBarButtonItem *anotherButton;
+@property (nonatomic, retain) NSTimer *refreshTimer;
+@property (nonatomic, retain) NSDate *lastRefresh;
 
 @end

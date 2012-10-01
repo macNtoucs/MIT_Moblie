@@ -92,16 +92,16 @@
 {
     switch (self->WhatRoute) {
         case 0:
-            return 7;
+            return 8;
             break;
         case 1:
-            return 3;
+            return 4;
             break;
         case 2:
-            return 5;
+            return 6;
             break;
         case 3:
-            return 3;
+            return 4;
             break;
         default:
             return 0;
@@ -122,30 +122,37 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
+                    cell.textLabel.text = @"站牌";
+                    cell.textLabel.textColor = [UIColor blueColor];
+                    cell.detailTextLabel.text = @"第一班     第二班   ";
+                    cell.detailTextLabel.textColor = [UIColor blueColor];
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                    break;
+                case 1:
                     cell.textLabel.text = @"松山車站";
                     cell.detailTextLabel.text = @"06:30      08:25";
                     break;
-                case 1:
+                case 2:
                     cell.textLabel.text = @"饒河街口";
                     cell.detailTextLabel.text = @"06:30      08:25";
                     break;
-                case 2:
+                case 3:
                     cell.textLabel.text = @"京華城";
                     cell.detailTextLabel.text = @"06:35      08:30";
                     break;
-                case 3:
+                case 4:
                     cell.textLabel.text = @"監理處";
                     cell.detailTextLabel.text = @"06:35      08:30";
                     break;
-                case 4:
+                case 5:
                     cell.textLabel.text = @"美仁里";
                     cell.detailTextLabel.text = @"06:40      08:35";
                     break;
-                case 5:
+                case 6:
                     cell.textLabel.text = @"臺安醫院";
                     cell.detailTextLabel.text = @"06:45      08:40";
                     break;
-                case 6:
+                case 7:
                     cell.textLabel.text = @"捷運忠孝復興站";
                     cell.detailTextLabel.text = @"07:00      09:00";
                     break;
@@ -157,14 +164,21 @@
         case 1:
             switch (indexPath.row) {
                 case 0:
+                    cell.textLabel.text = @"站牌";
+                    cell.textLabel.textColor = [UIColor blueColor];
+                    cell.detailTextLabel.text = @"第一班     第二班   ";
+                    cell.detailTextLabel.textColor = [UIColor blueColor];
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                    break;
+                case 1:
                     cell.textLabel.text = @"工學院";
                     cell.detailTextLabel.text = @"15:20      17:15";
                     break;
-                case 1:
+                case 2:
                     cell.textLabel.text = @"祥豐校區站";
                     cell.detailTextLabel.text = @"15:20      17:15";
                     break;
-                case 2:
+                case 3:
                     cell.textLabel.text = @"人社院站";
                     cell.detailTextLabel.text = @"15:20      17:15";
                     break;
@@ -174,22 +188,29 @@
         case 2:
             switch (indexPath.row) {
                 case 0:
+                    cell.textLabel.text = @"站牌";
+                    cell.textLabel.textColor = [UIColor blueColor];
+                    cell.detailTextLabel.text = @"第一班     第二班   ";
+                    cell.detailTextLabel.textColor = [UIColor blueColor];
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                    break;
+                case 1:
                     cell.textLabel.text = @"啟聰學校";
                     cell.detailTextLabel.text = @"06:40      08:45";
                     break;
-                case 1:
+                case 2:
                     cell.textLabel.text = @"酒泉街";
                     cell.detailTextLabel.text = @"06:40      08:45";
                     break;
-                case 2:
+                case 3:
                     cell.textLabel.text = @"市立美術館";
                     cell.detailTextLabel.text = @"06:45      08:50";
                     break;
-                case 3:
+                case 4:
                     cell.textLabel.text = @"捷運劍潭站";
                     cell.detailTextLabel.text = @"07:00      09:00";
                     break;
-                case 4:
+                case 5:
                     cell.textLabel.text = @"士林行政中心";
                     cell.detailTextLabel.text = @"07:00      09:00";
                     break;
@@ -199,14 +220,21 @@
         case 3:
             switch (indexPath.row) {
                 case 0:
+                    cell.textLabel.text = @"站牌";
+                    cell.textLabel.textColor = [UIColor blueColor];
+                    cell.detailTextLabel.text = @"第一班     第二班   ";
+                    cell.detailTextLabel.textColor = [UIColor blueColor];
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                    break;
+                case 1:
                     cell.textLabel.text = @"工學院";
                     cell.detailTextLabel.text = @"15:20      17:15";
                     break;
-                case 1:
+                case 2:
                     cell.textLabel.text = @"祥豐校區站";
                     cell.detailTextLabel.text = @"15:20      17:15";
                     break;
-                case 2:
+                case 3:
                     cell.textLabel.text = @"人社院站";
                     cell.detailTextLabel.text = @"15:20      17:15";
                     break;
@@ -262,12 +290,23 @@
 
 #pragma mark - Table view delegate
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!indexPath.row) {
+        return nil;
+    }
+    return indexPath;
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NTOUTableViewControllerLayer3* Layer3 = [[NTOUTableViewControllerLayer3 alloc] initWithStyle:UITableViewStyleGrouped];
-    Layer3.Routes = indexPath;
-    [self.navigationController pushViewController:Layer3 animated:YES];
-    [Layer3 release];
+    if (indexPath.row) {
+        NTOUTableViewControllerLayer3* Layer3 = [[NTOUTableViewControllerLayer3 alloc] initWithStyle:UITableViewStyleGrouped];
+        Layer3.Routes = indexPath;
+        [self.navigationController pushViewController:Layer3 animated:YES];
+        [Layer3 release];
+    }
 }
 
 @end

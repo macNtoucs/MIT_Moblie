@@ -9,6 +9,7 @@
 #import "RouteDetailViewController.h"
 #import "UIKit+MITAdditions.h"
 #define kPlainId				@"Plain"
+#define kRefreshInterval 60
 
 
 
@@ -19,6 +20,9 @@
 @synthesize waitTime2_103;
 @synthesize waitTime1_104;
 @synthesize waitTime2_104;
+@synthesize anotherButton;
+@synthesize refreshTimer;
+@synthesize lastRefresh;
 
 - (void) getURL:(NSString* ) inputURL
 {
@@ -61,10 +65,113 @@
 
 #pragma mark - View lifecycle
 
+-(void)CatchData{
+    [item removeAllObjects];
+    for (id obj in waitTime){
+        NSError* error;
+        UInt32 big5 = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingBig5);
+        NSData* data = [[NSString stringWithContentsOfURL:obj encoding:big5 error:&error] dataUsingEncoding:big5];
+        TFHpple* parser = [[TFHpple alloc] initWithHTMLData:data];
+        NSArray *waittime_tmp  = [parser searchWithXPathQuery:@"//body//div//table//tr//td"]; // get the title
+        TFHppleElement* T_ptr2 = [waittime_tmp objectAtIndex:2];
+        NSArray *child2 = [T_ptr2 children];
+        TFHppleElement* buf2 = [child2 objectAtIndex:0];
+        [item  addObject: [buf2 content] ];
+        [self.tableView reloadData];
+    }
+}
+
+-(void)AlertStart:(UIAlertView *) loadingAlertView{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    CGRect frame = CGRectMake(120, 10, 40, 40);
+    UIActivityIndicatorView* progressInd = [[UIActivityIndicatorView alloc] initWithFrame:frame];
+    progressInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    [progressInd startAnimating];
+    [loadingAlertView addSubview:progressInd];
+    [loadingAlertView show];
+    [progressInd release];
+    [pool drain];
+}
+
+
+- (void)refreshPropertyList{
+    self->lastRefresh = [NSDate date];
+    self.navigationItem.rightBarButtonItem.title = @"Refreshing";
+    UIAlertView *  loadingAlertView = [[UIAlertView alloc]
+                                       initWithTitle:nil message:@"\n\nDownloading\nPlease wait"
+                                       delegate:nil cancelButtonTitle:nil
+                                       otherButtonTitles: nil];
+    NSThread*thread = [[NSThread alloc]initWithTarget:self selector:@selector(AlertStart:) object:loadingAlertView];
+    [thread start];
+    while (true) {
+        if ([thread isFinished]) {
+            break;
+        }
+    }
+    [self CatchData];
+    [loadingAlertView dismissWithClickedButtonIndex:0 animated:NO];
+    [loadingAlertView release];
+    [thread release];
+}
+
+- (void)startTimer
+{
+    self.lastRefresh = [NSDate date];
+    NSDate *oneSecondFromNow = [NSDate dateWithTimeIntervalSinceNow:0];
+    self.refreshTimer = [[[NSTimer alloc] initWithFireDate:oneSecondFromNow interval:1 target:self selector:@selector(countDownAction:) userInfo:nil repeats:YES] autorelease];
+    [[NSRunLoop currentRunLoop] addTimer:self.refreshTimer forMode:NSDefaultRunLoopMode];
+	
+}
+
+-(void) countDownAction:(NSTimer *)timer
+{
+    
+    if (self.refreshTimer !=nil && self.refreshTimer)
+	{
+		NSTimeInterval sinceRefresh = [self.lastRefresh timeIntervalSinceNow];
+        
+        // If we detect that the app was backgrounded while this timer
+        // was expiring we go around one more time - this is to enable a commuter
+        // bookmark time to be processed.
+        
+        bool updateTimeOnButton = YES;
+        
+		if (sinceRefresh <= -kRefreshInterval)
+		{
+            [self refreshPropertyList];
+			self.anotherButton.title = @"Refreshing";
+            //updateTimeOnButton = NO;
+		}
+        
+        else if (updateTimeOnButton)
+        {
+            int secs = (1+kRefreshInterval+sinceRefresh);
+            if (secs < 0) secs = 0;
+            self.anotherButton.title = [NSString stringWithFormat:@"Refresh in %d", secs];
+            
+        }
+	}
+    
+}
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
+    anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refreshPropertyList)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
+    //[anotherButton release];
+    
+    if (_refreshHeaderView == nil) {
+        EGORefreshTableHeaderView *view1 = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f,5.0f - self.tableView.bounds.size.height,self.tableView.bounds.size.width,self.tableView.bounds.size.height)];
+        view1.delegate = self;
+        [self.tableView addSubview:view1];
+        _refreshHeaderView = view1;
+        [view1 release];
+    }
+    [_refreshHeaderView refreshLastUpdatedDate];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -82,23 +189,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self CatchData];
     [super viewWillAppear:animated];
-    for (id obj in waitTime){
-    NSError* error;
-    UInt32 big5 = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingBig5);
-    NSData* data = [[NSString stringWithContentsOfURL:obj encoding:big5 error:&error] dataUsingEncoding:big5];
-    TFHpple* parser = [[TFHpple alloc] initWithHTMLData:data];
-    NSArray *waittime_tmp  = [parser searchWithXPathQuery:@"//body//div//table//tr//td"]; // get the title
-    TFHppleElement* T_ptr2 = [waittime_tmp objectAtIndex:2];
-    NSArray *child2 = [T_ptr2 children];
-    TFHppleElement* buf2 = [child2 objectAtIndex:0];
-    [item  addObject: [buf2 content] ];
-    [self.tableView reloadData];
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self startTimer];
     [super viewDidAppear:animated];
 }
 
@@ -107,8 +204,19 @@
     [super viewWillDisappear:animated];
 }
 
+-(void)stopTimer
+{
+	if (self->refreshTimer !=nil)
+	{
+		[self->refreshTimer invalidate];
+		self->refreshTimer = nil;
+		self->anotherButton.title = @"Refresh";
+	}
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [self stopTimer];
     [super viewDidDisappear:animated];
 }
 
@@ -261,5 +369,43 @@
      [detailViewController release];
      */
    }
+
+#pragma mark –
+#pragma mark Data Source Loading / Reloading Methods
+
+- (void)reloadTableViewDataSource{
+    _reloading = YES;
+}
+
+- (void)doneLoadingTableViewData{
+    _reloading = NO;
+    [self CatchData];
+    self.lastRefresh = [NSDate date];
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+}
+#pragma mark –
+#pragma mark UIScrollViewDelegate Methods
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+#pragma mark –
+#pragma mark EGORefreshTableHeaderDelegate Methods
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
+    [self reloadTableViewDataSource];
+    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:0];
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
+    return _reloading;
+}
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
+    return [NSDate date];
+}
+
+
 
 @end
