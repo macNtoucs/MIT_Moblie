@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NTOUTableViewControllerLayer3.h"
+#import "StopsLocationViewController.h"
 @interface NTOUTableViewControllerLayer2 : UITableViewController{
     int WhatRoute;
 }

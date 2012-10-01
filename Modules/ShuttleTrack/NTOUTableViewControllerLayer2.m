@@ -264,10 +264,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NTOUTableViewControllerLayer3* Layer3 = [[NTOUTableViewControllerLayer3 alloc] initWithStyle:UITableViewStyleGrouped];
-    Layer3.Routes = indexPath;
-    [self.navigationController pushViewController:Layer3 animated:YES];
-    [Layer3 release];
+    StopsLocationViewController  * stopsLocation = [[StopsLocationViewController  alloc]init];
+    CLLocationCoordinate2D location ;
+    switch (indexPath.row) {
+        case 0:
+            location.longitude = 121.577064;
+            location.latitude = 25.050059;
+            [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+            break;
+            
+        default:
+            break;
+    }
+    stopsLocation.view.hidden = NO;
+    [self.navigationController pushViewController:stopsLocation animated:YES];
+    [stopsLocation release];
 }
 
 @end

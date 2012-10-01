@@ -195,6 +195,8 @@
 		569DC33F1282ADC000BA0794 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569DC33E1282ADC000BA0794 /* CoreVideo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		569DC3421282ADCE00BA0794 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 569DC3411282ADCE00BA0794 /* libiconv.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		56D7DF52128854DF00E9E5C9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D7DF51128854DF00E9E5C9 /* MapKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		91F70E55161940390001BE03 /* StopsLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F70E54161940390001BE03 /* StopsLocationViewController.m */; };
+		91F70E5C161941AE0001BE03 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F70E5B161941AE0001BE03 /* Annotation.m */; };
 		A63DEE281353CF37001C52BF /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63DEE271353CF37001C52BF /* EventKit.framework */; };
 		A6930566144CEBFC0012EEFA /* ThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6930564144CEBFC0012EEFA /* ThankYouViewController.m */; };
 		A69826E51354A488004A8258 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69826E41354A488004A8258 /* EventKitUI.framework */; };
@@ -209,7 +211,6 @@
 		BD9FA7EE1047A05E00BC3C0A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9FA7ED1047A05E00BC3C0A /* MessageUI.framework */; };
 		C74401851612C24000882D79 /* NTOUTableViewControllerLayer1.m in Sources */ = {isa = PBXBuildFile; fileRef = C74401841612C23F00882D79 /* NTOUTableViewControllerLayer1.m */; };
 		C74401881612D14E00882D79 /* NTOUTableViewControllerLayer2.m in Sources */ = {isa = PBXBuildFile; fileRef = C74401871612D14D00882D79 /* NTOUTableViewControllerLayer2.m */; };
-		C744018B1612D1B200882D79 /* NTOUTableViewControllerLayer3.m in Sources */ = {isa = PBXBuildFile; fileRef = C744018A1612D1B000882D79 /* NTOUTableViewControllerLayer3.m */; };
 		C74401901612D8E000882D79 /* RouteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C744018D1612D8DB00882D79 /* RouteDetailViewController.m */; };
 		C74401911612D8E000882D79 /* DepatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C744018F1612D8DE00882D79 /* DepatureViewController.m */; };
 		C74401981612D91900882D79 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = C74401931612D91100882D79 /* TFHpple.m */; };
@@ -773,6 +774,10 @@
 		56D7D7BA12846C4100E9E5C9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = iphoneos4.0/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		56D7DF51128854DF00E9E5C9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = iphoneos4.0/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MIT_Mobile-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MIT_Mobile-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		91F70E53161940390001BE03 /* StopsLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopsLocationViewController.h; sourceTree = "<group>"; };
+		91F70E54161940390001BE03 /* StopsLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsLocationViewController.m; sourceTree = "<group>"; };
+		91F70E5A161941AE0001BE03 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		91F70E5B161941AE0001BE03 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		A63DEE271353CF37001C52BF /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		A6930563144CEBFC0012EEFA /* ThankYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThankYouViewController.h; sourceTree = "<group>"; };
 		A6930564144CEBFC0012EEFA /* ThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThankYouViewController.m; sourceTree = "<group>"; };
@@ -799,8 +804,6 @@
 		C74401841612C23F00882D79 /* NTOUTableViewControllerLayer1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTOUTableViewControllerLayer1.m; sourceTree = "<group>"; };
 		C74401861612D14C00882D79 /* NTOUTableViewControllerLayer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTOUTableViewControllerLayer2.h; sourceTree = "<group>"; };
 		C74401871612D14D00882D79 /* NTOUTableViewControllerLayer2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTOUTableViewControllerLayer2.m; sourceTree = "<group>"; };
-		C74401891612D1AF00882D79 /* NTOUTableViewControllerLayer3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTOUTableViewControllerLayer3.h; sourceTree = "<group>"; };
-		C744018A1612D1B000882D79 /* NTOUTableViewControllerLayer3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTOUTableViewControllerLayer3.m; sourceTree = "<group>"; };
 		C744018C1612D8DA00882D79 /* RouteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteDetailViewController.h; sourceTree = "<group>"; };
 		C744018D1612D8DB00882D79 /* RouteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteDetailViewController.m; sourceTree = "<group>"; };
 		C744018E1612D8DD00882D79 /* DepatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepatureViewController.h; sourceTree = "<group>"; };
@@ -2094,6 +2097,8 @@
 		DE715449102FE468005E6111 /* ShuttleTrack */ = {
 			isa = PBXGroup;
 			children = (
+				91F70E5A161941AE0001BE03 /* Annotation.h */,
+				91F70E5B161941AE0001BE03 /* Annotation.m */,
 				C744019B1612D94100882D79 /* EGORefreshTableHeaderView.h */,
 				C744019C1612D94300882D79 /* EGORefreshTableHeaderView.m */,
 				C74401921612D91000882D79 /* TFHpple.h */,
@@ -2112,8 +2117,6 @@
 				C74401841612C23F00882D79 /* NTOUTableViewControllerLayer1.m */,
 				C74401861612D14C00882D79 /* NTOUTableViewControllerLayer2.h */,
 				C74401871612D14D00882D79 /* NTOUTableViewControllerLayer2.m */,
-				C74401891612D1AF00882D79 /* NTOUTableViewControllerLayer3.h */,
-				C744018A1612D1B000882D79 /* NTOUTableViewControllerLayer3.m */,
 				DE6D332910346F6D008A5823 /* ShuttleRoutes.h */,
 				DE6D332A10346F6D008A5823 /* ShuttleRoutes.m */,
 				44BF5B411100A75C00E150D5 /* RouteInfoTitleCell.h */,
@@ -2129,6 +2132,8 @@
 				44BF601E11050ABF00E150D5 /* ShuttleStopCell.h */,
 				44BF601F11050AC000E150D5 /* ShuttleStopCell.m */,
 				44BF602111050ACE00E150D5 /* ShuttleStopCell.xib */,
+				91F70E53161940390001BE03 /* StopsLocationViewController.h */,
+				91F70E54161940390001BE03 /* StopsLocationViewController.m */,
 				EBDB0C4711483FE3008AAE42 /* Model */,
 				DE6D32F410346D02008A5823 /* ShuttleModule.h */,
 				DE6D32F510346D02008A5823 /* ShuttleModule.m */,
@@ -3029,7 +3034,6 @@
 				2CDB025115D0404500436B59 /* MITScannerImage.m in Sources */,
 				C74401851612C24000882D79 /* NTOUTableViewControllerLayer1.m in Sources */,
 				C74401881612D14E00882D79 /* NTOUTableViewControllerLayer2.m in Sources */,
-				C744018B1612D1B200882D79 /* NTOUTableViewControllerLayer3.m in Sources */,
 				C74401901612D8E000882D79 /* RouteDetailViewController.m in Sources */,
 				C74401911612D8E000882D79 /* DepatureViewController.m in Sources */,
 				C74401981612D91900882D79 /* TFHpple.m in Sources */,
@@ -3038,6 +3042,8 @@
 				C744019D1612D94400882D79 /* EGORefreshTableHeaderView.m in Sources */,
 				C74401A01613DC0900882D79 /* StopsViewController.m in Sources */,
 				C74401AB1616EE4000882D79 /* StopsLocationMapViewController.m in Sources */,
+				91F70E55161940390001BE03 /* StopsLocationViewController.m in Sources */,
+				91F70E5C161941AE0001BE03 /* Annotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
