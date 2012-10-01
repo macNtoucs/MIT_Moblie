@@ -137,6 +137,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RouteDetailViewController * detail = [[RouteDetailViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    detail.title = cell.textLabel.text;
     if (go){ //往市區
         if (indexPath.row ==0){
             //體育館
@@ -164,9 +166,9 @@
         }
         else{
         //中正校門
-            [detail addRoutesURL:@"http://ebus.klcba.gov.tw/KLBusWeb/pda/estimate_result.jsp?rid=103101&sid=120"
+            [detail addRoutesURL:@"http://ebus.klcba.gov.tw/KLBusWeb/pda/estimate_result.jsp?rid=103101&sid=65"
                              and: nil
-                             and: @"http://ebus.klcba.gov.tw/KLBusWeb/pda/estimate_result.jsp?rid=104101&sid=120"
+                             and: @"http://ebus.klcba.gov.tw/KLBusWeb/pda/estimate_result.jsp?rid=104101&sid=65"
                              and: nil
              ];
         }

@@ -104,10 +104,10 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    cell.textLabel.text = @"捷運忠孝復興站 --> 海洋大學";
+                    cell.textLabel.text = @"忠孝復興站 --> 海洋大學";
                     break;
                 case 1:
-                    cell.textLabel.text = @"海洋大學 --> 捷運忠孝復興站";
+                    cell.textLabel.text = @"海洋大學 --> 忠孝復興站";
                     break;
                 case 2:
                     cell.textLabel.text = @"捷運劍潭站 --> 海洋大學";
@@ -192,7 +192,7 @@
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
        
         StopsViewController * stops = [[StopsViewController alloc]initWithStyle:UITableViewStyleGrouped];
-        
+        stops.title = cell.textLabel.text;
         if (indexPath.row==0) {
             [stops setDirection:true];
             [self.navigationController pushViewController:stops animated:YES];
