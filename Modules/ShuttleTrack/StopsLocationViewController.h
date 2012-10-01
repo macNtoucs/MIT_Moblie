@@ -12,6 +12,7 @@
 CLLocationCoordinate2D location;
 MKCoordinateSpan span;
 MKMapView *mapView;
+    UIBarButtonItem *switchButton;
 }
 -(void) setlocation:(CLLocationCoordinate2D) inputloaction latitudeDelta:(double)latitude longitudeDelta:(double)longitude;
 @end

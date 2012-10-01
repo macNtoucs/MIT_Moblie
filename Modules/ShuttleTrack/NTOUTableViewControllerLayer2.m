@@ -64,17 +64,17 @@
 - (UIView *) tableView: (UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 	NSString *headerTitle;
     switch (self->WhatRoute) {
-        case 0:
-            headerTitle = @"捷運忠孝復興站--海洋大學";
+        case 3:
+            headerTitle = @"忠孝復興站  → 海洋大學";
             break;
-        case 1:
-            headerTitle = @"海洋大學--捷運忠孝復興站";
+        case 0:
+            headerTitle = @"海洋大學  → 忠孝復興站";
             break;
         case 2:
-            headerTitle = @"捷運劍潭站--海洋大學";
+            headerTitle = @"捷運劍潭站  → 海洋大學";
             break;
-        case 3:
-            headerTitle = @"海洋大學--捷運劍潭站";
+        case 1:
+            headerTitle = @"海洋大學  → 捷運劍潭站";
             break;
         default:
             break;
@@ -91,16 +91,16 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     switch (self->WhatRoute) {
-        case 0:
+        case 3:
             return 8;
             break;
-        case 1:
+        case 0:
             return 4;
             break;
         case 2:
             return 6;
             break;
-        case 3:
+        case 1:
             return 4;
             break;
         default:
@@ -119,7 +119,7 @@
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     switch (self->WhatRoute) {
-        case 0:
+        case 3:
             switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = @"站牌";
@@ -161,6 +161,7 @@
                     break;
             }
             break;
+        case 0:
         case 1:
             switch (indexPath.row) {
                 case 0:
@@ -185,6 +186,7 @@
                 default:
                     break;
             }
+            break;
         case 2:
             switch (indexPath.row) {
                 case 0:
@@ -217,30 +219,7 @@
                 default:
                     break;
             }
-        case 3:
-            switch (indexPath.row) {
-                case 0:
-                    cell.textLabel.text = @"站牌";
-                    cell.textLabel.textColor = [UIColor blueColor];
-                    cell.detailTextLabel.text = @"第一班     第二班   ";
-                    cell.detailTextLabel.textColor = [UIColor blueColor];
-                    cell.accessoryType = UITableViewCellAccessoryNone;
-                    break;
-                case 1:
-                    cell.textLabel.text = @"工學院";
-                    cell.detailTextLabel.text = @"15:20      17:15";
-                    break;
-                case 2:
-                    cell.textLabel.text = @"祥豐校區站";
-                    cell.detailTextLabel.text = @"15:20      17:15";
-                    break;
-                case 3:
-                    cell.textLabel.text = @"人社院站";
-                    cell.detailTextLabel.text = @"15:20      17:15";
-                    break;
-                default:
-                    break;
-            }
+            break;
         default:
             break;
     }
@@ -304,17 +283,111 @@
 
     StopsLocationViewController  * stopsLocation = [[StopsLocationViewController  alloc]init];
     CLLocationCoordinate2D location ;
-    switch (indexPath.row) {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    switch (self->WhatRoute) {
+        case 0:
         case 1:
-            location.longitude = 121.577064;
-            location.latitude = 25.050059;
-            [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+            switch (indexPath.row) {
+                case 1:
+                    location.longitude = 121.780073;
+                    location.latitude = 25.150531;
+                    [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+                    break;
+                case 2:
+                    location.longitude = 121.773067;
+                    location.latitude = 25.149939;
+                    [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+                    break;
+                case 3:
+                    location.longitude = 121.775124;
+                    location.latitude = 25.15008;
+                    [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+                    break;
+                default:
+                    break;
+            }
+
+            break;
+        case 2:
+         switch (indexPath.row) {
+         case 1:
+         location.longitude = 121.513733;
+         location.latitude = 25.074764;
+         [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+         break;
+         case 2:
+         location.longitude = 121.514442;
+         location.latitude = 25.072043;
+         [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+         break;
+         case 3:
+         location.longitude = 121.524386;
+         location.latitude = 25.07318;
+         [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+         break;
+         case 4:
+         location.longitude = 121.52531;
+         location.latitude = 25.084919;
+         [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+         break;
+         case 5:
+         location.longitude = 121.520365;
+         location.latitude = 25.092906;
+         [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+         break;
+         default:
+         break;
+         }
+         break;
+            break;
+            
+        case 3:
+            switch (indexPath.row) {
+                case 1:
+                    location.longitude = 121.577064;
+                    location.latitude = 25.050059;
+                    [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+                    break;
+                case 2:
+                    location.longitude = 121.571539;
+                    location.latitude = 25.049894;
+                    [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+                    break;
+                case 3:
+                    location.longitude = 121.563783;
+                    location.latitude = 25.04898;
+                    [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+                    break;
+                case 4:
+                    location.longitude = 121.559631;
+                    location.latitude = 25.048533;
+                    [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+                    break;
+                case 5:
+                    location.longitude = 121.553902;
+                    location.latitude = 25.048349;
+                    [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+                    break;
+                case 6:
+                    location.longitude = 121.54592;
+                    location.latitude = 25.048426;
+                    [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+                    break;
+                case 7:
+                    location.longitude = 121.543603;
+                    location.latitude = 25.042196;
+                    [stopsLocation setlocation:location latitudeDelta:0.002 longitudeDelta:0.002];
+                    break;
+                default:
+                    break;
+            }
             break;
             
         default:
             break;
     }
     stopsLocation.view.hidden = NO;
+    stopsLocation.title = cell.textLabel.text;
     [self.navigationController pushViewController:stopsLocation animated:YES];
     [stopsLocation release];
 
