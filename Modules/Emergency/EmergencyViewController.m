@@ -294,7 +294,7 @@
             } else {
                 // show More Emergency Contact drilldown
                 // init its view controller
-                CameraViewController *camera = [[CameraViewController alloc] initWithNibName:nil bundle:nil];
+                CameraViewController *camera = [[CameraViewController alloc] init];
                 // push it onto the navigation stack
                 [self.navigationController pushViewController:camera animated:YES];
                 [camera release];

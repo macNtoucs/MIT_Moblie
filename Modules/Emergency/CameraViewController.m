@@ -23,6 +23,23 @@
     return self;
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    //取得影像
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+    //將影像縮小顯示於畫面中央（原圖是480*960）
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+    [imageView setFrame:CGRectMake(0.0, 0.0, 160.0, 240.0)];
+    [imageView setCenter:self.view.center];
+    
+    [self.view addSubview:imageView];
+    
+    //移除Picker
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,8 +51,9 @@
     }
     imagePicker = [UIImagePickerController new];
     imagePicker.delegate = self;
-    imagePicker.sourceType=UIImagePickerControllerCameraCaptureModePhoto;
+    imagePicker.sourceType=UIImagePickerControllerSourceTypeCamera;
     [self presentModalViewController:imagePicker animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning
