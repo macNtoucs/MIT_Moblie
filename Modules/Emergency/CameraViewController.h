@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CameraViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>{
+#import <MessageUI/MessageUI.h>
+@interface CameraViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate,MFMailComposeViewControllerDelegate>{
     UIImagePickerController * imagePicker;
     bool hasCamera;
 }
