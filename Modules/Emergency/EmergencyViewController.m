@@ -294,10 +294,10 @@
             } else {
                 // show More Emergency Contact drilldown
                 // init its view controller
-                EmergencyContactsViewController *contactsVC = [[EmergencyContactsViewController alloc] initWithNibName:nil bundle:nil];
+                CameraViewController *camera = [[CameraViewController alloc] initWithNibName:nil bundle:nil];
                 // push it onto the navigation stack
-                [self.navigationController pushViewController:contactsVC animated:YES];
-                [contactsVC release];
+                [self.navigationController pushViewController:camera animated:YES];
+                [camera release];
             }
             break;
         }

@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "ConnectionWrapper.h"
-
+#import "CameraViewController.h"
 @protocol EmergencyViewControllerDelegate<NSObject>
 
 @optional

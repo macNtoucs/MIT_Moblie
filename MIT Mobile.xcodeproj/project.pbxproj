@@ -195,6 +195,7 @@
 		569DC33F1282ADC000BA0794 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569DC33E1282ADC000BA0794 /* CoreVideo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		569DC3421282ADCE00BA0794 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 569DC3411282ADCE00BA0794 /* libiconv.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		56D7DF52128854DF00E9E5C9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D7DF51128854DF00E9E5C9 /* MapKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		919B7C69161AAF7300D037CE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919B7C68161AAF7300D037CE /* CameraViewController.m */; };
 		91F70E55161940390001BE03 /* StopsLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F70E54161940390001BE03 /* StopsLocationViewController.m */; };
 		91F70E5C161941AE0001BE03 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F70E5B161941AE0001BE03 /* Annotation.m */; };
 		A63DEE281353CF37001C52BF /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63DEE271353CF37001C52BF /* EventKit.framework */; };
@@ -774,6 +775,8 @@
 		56D7D7BA12846C4100E9E5C9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = iphoneos4.0/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		56D7DF51128854DF00E9E5C9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = iphoneos4.0/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MIT_Mobile-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MIT_Mobile-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		919B7C67161AAF7200D037CE /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		919B7C68161AAF7300D037CE /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		91F70E53161940390001BE03 /* StopsLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopsLocationViewController.h; sourceTree = "<group>"; };
 		91F70E54161940390001BE03 /* StopsLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsLocationViewController.m; sourceTree = "<group>"; };
 		91F70E5A161941AE0001BE03 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
@@ -2090,6 +2093,8 @@
 				EBCB4DEC10D30AA1001219FD /* EmergencyContactsViewController.h */,
 				EBCB4DED10D30AA2001219FD /* EmergencyContactsViewController.m */,
 				DEE283ED10F5109800B39531 /* Emergency.xcdatamodeld */,
+				919B7C67161AAF7200D037CE /* CameraViewController.h */,
+				919B7C68161AAF7300D037CE /* CameraViewController.m */,
 			);
 			path = Emergency;
 			sourceTree = "<group>";
@@ -3044,6 +3049,7 @@
 				C74401AB1616EE4000882D79 /* StopsLocationMapViewController.m in Sources */,
 				91F70E55161940390001BE03 /* StopsLocationViewController.m in Sources */,
 				91F70E5C161941AE0001BE03 /* Annotation.m in Sources */,
+				919B7C69161AAF7300D037CE /* CameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
