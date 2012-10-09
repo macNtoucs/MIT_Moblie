@@ -12,22 +12,7 @@
 
 NSArray* MITMobileWebGetAPIServerList( void ) {
     static NSMutableArray* array = nil;
-    
-    if (array == nil) {
-        array = [[NSMutableArray alloc] init];
-        for (int i = 0; MobileAPIServers[i] != nil; ++i) {
-            NSURL *url = [NSURL URLWithString:MobileAPIServers[i]];
-            if (url != nil) {
-                DLog( @"Got %@", [url absoluteString]);
-                [array addObject:url];
-            } else {
-                ELog(@"API URL '%@' is malformed", url);
-            }
-        }
-        
-        NSCAssert(([array count] >= 1),@"There must be at least 1 valid API server");
-    }
-    
+       
     return [[array copy] autorelease];
 }
 

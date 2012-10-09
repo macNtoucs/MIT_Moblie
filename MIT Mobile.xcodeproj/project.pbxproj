@@ -220,6 +220,7 @@
 		C744019D1612D94400882D79 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C744019C1612D94300882D79 /* EGORefreshTableHeaderView.m */; };
 		C74401A01613DC0900882D79 /* StopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C744019F1613DC0700882D79 /* StopsViewController.m */; };
 		C74401AB1616EE4000882D79 /* StopsLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C74401AA1616EE2C00882D79 /* StopsLocationMapViewController.m */; };
+		C7E759CC1623E57E005F925A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E759CB1623E57E005F925A /* Default-568h@2x.png */; };
 		DE03763C1350F5080041DDBD /* MIT150Button.m in Sources */ = {isa = PBXBuildFile; fileRef = DE03763B1350F5080041DDBD /* MIT150Button.m */; };
 		DE0A62AC10CDAEA90058B2C2 /* MITBuildInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0A62AB10CDAEA90058B2C2 /* MITBuildInfo.m */; };
 		DE0F6B3411109BC500F064D6 /* AboutMITVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0F6B3311109BC500F064D6 /* AboutMITVC.m */; };
@@ -823,6 +824,7 @@
 		C744019F1613DC0700882D79 /* StopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsViewController.m; sourceTree = "<group>"; };
 		C74401A91616EE2000882D79 /* StopsLocationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopsLocationMapViewController.h; sourceTree = "<group>"; };
 		C74401AA1616EE2C00882D79 /* StopsLocationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsLocationMapViewController.m; sourceTree = "<group>"; };
+		C7E759CB1623E57E005F925A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DE03763A1350F5080041DDBD /* MIT150Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIT150Button.h; sourceTree = "<group>"; };
 		DE03763B1350F5080041DDBD /* MIT150Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIT150Button.m; sourceTree = "<group>"; };
 		DE0A62AA10CDAEA90058B2C2 /* MITBuildInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MITBuildInfo.h; sourceTree = "<group>"; };
@@ -1272,6 +1274,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C7E759CB1623E57E005F925A /* Default-568h@2x.png */,
 				4B83721C157E5B19004CBC49 /* Contrib */,
 				DE715445102FE468005E6111 /* Modules */,
 				080E96DDFE201D6D7F000001 /* Common */,
@@ -2611,7 +2614,6 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				DEE2B550104C17860037A4AB /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -2695,6 +2697,7 @@
 				4B83723E157E5B5C004CBC49 /* zbar-helpicons.png in Resources */,
 				4B83723F157E5B5C004CBC49 /* zbar-samples.png in Resources */,
 				2CA91F9A15CB03BB00C03732 /* MITScannerHelpViewController.xib in Resources */,
+				C7E759CC1623E57E005F925A /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2714,21 +2717,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "if [[ ! -f \"Common/Secret.m\" ]]; then\n    cp \"Common/Secret.m.in\" \"Common/Secret.m\"\nfi";
-		};
-		DEE2B550104C17860037A4AB /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /usr/bin/ruby;
-			shellScript = "# Xcode auto-versioning script for git\n#\n# Based on a Ruby script by Jason Sallis, which was in turn\n# based on original Perl script by Marcus S. Zarra and Matt Long at\n#   (http://www.cimgf.com/2008/04/13/git-and-xcode-a-git-build-number-script/)\n\n# Fail if not run from Xcode\nraise \"Must be run from Xcode\" unless ENV['XCODE_VERSION_ACTUAL']\n\ninfo_plist = \"#{ENV['BUILT_PRODUCTS_DIR']}/#{ENV['INFOPLIST_PATH']}\"\n\n# Get the current git description\ndescription = `/usr/bin/git describe`.chomp!\n\n# Get the current git revision hash\nrevision = `/usr/bin/git rev-parse HEAD`.chomp!\n\n# Adjust the copyright year to be the year at build time\ntime = Time.new\ncopyright = \"Copyright © #{time.year} Massachusetts Institute of Technology. All rights reserved.\"\n\n# Temporarily turn plist into text\n`/usr/bin/plutil -convert xml1 \"#{info_plist}\"`\n\n# Open Info.plist and set the CFBundleVersion value to the revision hash\nlines = IO.readlines(info_plist).join\n\nlines.gsub! /(<key>MITBuildDescription<\\/key>\\n\\t<string>).*?(<\\/string>)/, \"\\\\1#{description}\\\\2\"\nlines.gsub! /(<key>MITBuildRevision<\\/key>\\n\\t<string>).*?(<\\/string>)/, \"\\\\1#{revision}\\\\2\"\nlines.gsub! /(<key>MITCopyright<\\/key>\\n\\t<string>).*?(<\\/string>)/, \"\\\\1#{copyright}\\\\2\"\n\n# Overwrite the original Info.plist file with our updated version\nFile.open(info_plist, 'w') {|f| f.puts lines}\n\n# Convert plist back into binary\n`/usr/bin/plutil -convert binary1 \"#{info_plist}\"`\n\n# Report to the user\nputs \"MITBuildDescription in #{info_plist} set to '#{description}'\"\nputs \"MITBuildRevision in #{info_plist} set to '#{revision}'\"";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3060,12 +3048,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lin Ching-Chi (92L4PP5M48)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_FAST_MATH = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MIT_Mobile_Prefix.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/ZXing/ZXingWidget/Classes\"",
 					"\"$(SRCROOT)/ZXing/ZXingWidget/CoreSrc\"",
@@ -3073,12 +3065,14 @@
 					"\"Facebook Connect\"",
 				);
 				INFOPLIST_FILE = "MIT_Mobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Common/Libraries & Headers/OAuthConsumer\"",
 					"\"$(SRCROOT)/ZBarSDK\"",
 				);
 				PRODUCT_NAME = MITMobile;
+				PROVISIONING_PROFILE = "93543132-8E2D-416F-8758-B031085FD393";
 				SDKROOT = iphoneos;
 				WARNING_CFLAGS = "-Wall";
 			};
@@ -3088,10 +3082,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lin Ching-Chi (92L4PP5M48)";
 				COPY_PHASE_STRIP = YES;
+				GCC_FAST_MATH = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MIT_Mobile_Prefix.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/ZXing/ZXingWidget/Classes\"",
 					"\"$(SRCROOT)/ZXing/ZXingWidget/CoreSrc\"",
@@ -3099,12 +3097,14 @@
 					"\"Facebook Connect\"",
 				);
 				INFOPLIST_FILE = "MIT_Mobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Common/Libraries & Headers/OAuthConsumer\"",
 					"\"$(SRCROOT)/ZBarSDK\"",
 				);
 				PRODUCT_NAME = MITMobile;
+				PROVISIONING_PROFILE = "93543132-8E2D-416F-8758-B031085FD393";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -3116,10 +3116,11 @@
 					armv6,
 					armv7,
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -3132,7 +3133,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3144,10 +3145,11 @@
 					armv6,
 					armv7,
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -3159,6 +3161,7 @@
 					"-all_load",
 					"-ObjC",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -3170,10 +3173,11 @@
 					armv6,
 					armv7,
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Massachusetts Institute of Technology";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -3186,7 +3190,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3196,11 +3200,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lin Ching-Chi (92L4PP5M48)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
+				GCC_FAST_MATH = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MIT_Mobile_Prefix.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/ZXing/ZXingWidget/Classes\"",
 					"\"$(SRCROOT)/ZXing/ZXingWidget/CoreSrc\"",
@@ -3208,13 +3216,14 @@
 					"\"Facebook Connect\"",
 				);
 				INFOPLIST_FILE = "MIT_Mobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Common/Libraries & Headers/OAuthConsumer\"",
 					"\"$(SRCROOT)/ZBarSDK\"",
 				);
 				PRODUCT_NAME = MITMobile;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "93543132-8E2D-416F-8758-B031085FD393";
 				SDKROOT = iphoneos;
 			};
 			name = "Distribution - App Store";
@@ -3227,10 +3236,11 @@
 					armv7,
 				);
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Massachusetts Institute of Technology";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -3243,7 +3253,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3253,11 +3263,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lin Ching-Chi (92L4PP5M48)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
+				GCC_FAST_MATH = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MIT_Mobile_Prefix.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/ZXing/ZXingWidget/Classes\"",
 					"\"$(SRCROOT)/ZXing/ZXingWidget/CoreSrc\"",
@@ -3265,13 +3279,14 @@
 					"\"Facebook Connect\"",
 				);
 				INFOPLIST_FILE = "MIT_Mobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Common/Libraries & Headers/OAuthConsumer\"",
 					"\"$(SRCROOT)/ZBarSDK\"",
 				);
 				PRODUCT_NAME = MITMobile;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "93543132-8E2D-416F-8758-B031085FD393";
 				SDKROOT = iphoneos;
 			};
 			name = "Distribution - Ad Hoc";

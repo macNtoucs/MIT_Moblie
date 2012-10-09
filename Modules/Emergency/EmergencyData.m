@@ -36,21 +36,7 @@ static EmergencyData *sharedEmergencyData = nil;
     return self;
 }
 
-- (id)retain {
-    return self;
-}
 
-- (unsigned)retainCount {
-    return UINT_MAX;  //denotes an object that cannot be released
-}
-
-- (oneway void)release {
-    //do nothing
-}
-
-- (id)autorelease {
-    return self;
-}
 
 #pragma mark -
 #pragma mark Initialization
@@ -61,8 +47,14 @@ static EmergencyData *sharedEmergencyData = nil;
         // TODO: get primary numbers from m.mit.edu (it's unlikely, but numbers might change)
         primaryPhoneNumbers = [[NSArray arrayWithObjects:
                                     [NSDictionary dictionaryWithObjectsAndKeys:
-                                     @"值星教官室", @"title",
-                                     @"24629976", @"phone",
+                                     @"教官室(24H)", @"title", 
+                                     @"0224629976", @"phone",
+                                     @"衛生保健組", @"title",
+                                     @"0224622192#1071", @"phone",
+                                     @"警衛室", @"title",
+                                     @"0224622192#1132", @"phone",
+                                     @"八斗子派出所", @"title",
+                                     @"0224692077", @"phone",
                                      nil],
                                     nil] retain];
         [self fetchEmergencyInfo];

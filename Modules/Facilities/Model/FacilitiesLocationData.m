@@ -676,20 +676,6 @@ static FacilitiesLocationData *_sharedData = nil;
     return self;
 }
 
-- (id)retain {
-    return self;
-}
 
-- (NSUInteger)retainCount {
-    return NSUIntegerMax;
-}
-
-- (oneway void)release {
-    return;
-}
-
-- (id)autorelease {
-    return self;
-}
 
 @end

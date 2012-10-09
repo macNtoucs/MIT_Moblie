@@ -63,8 +63,8 @@
 }
 
 - (void)checkForFeaturedModule {
-	MITMobileWebAPI *api = [MITMobileWebAPI jsonLoadedDelegate:self];
-	[api requestObjectFromModule:@"features" command:@"banner" parameters:nil];
+	/*MITMobileWebAPI *api = [MITMobileWebAPI jsonLoadedDelegate:self];
+	[api requestObjectFromModule:@"features" command:@"banner" parameters:nil];*/
 }
 
 - (void)displayBannerImage {
@@ -138,7 +138,7 @@
 #pragma mark JSONLoadedDelegate
 
 - (void)request:(MITMobileWebAPI *)request jsonLoaded:(id)JSONObject {
-	if (JSONObject && [JSONObject isKindOfClass:[NSDictionary class]]) {
+/*	if (JSONObject && [JSONObject isKindOfClass:[NSDictionary class]]) {
 		
 		NSNumber *showBanner = [JSONObject objectForKey:@"showBanner"];
 		if (!showBanner || ![showBanner boolValue]) {
@@ -195,7 +195,7 @@
         NSString *documentPath = [paths objectAtIndex:0];
         NSString *bannerInfoFile = [documentPath stringByAppendingPathComponent:@"bannerInfo.plist"];
         [bannerInfo writeToFile:bannerInfoFile atomically:YES];
-	}
+	}*/
 }
 
 - (BOOL)request:(MITMobileWebAPI *)request shouldDisplayStandardAlertForError: (NSError *)error {

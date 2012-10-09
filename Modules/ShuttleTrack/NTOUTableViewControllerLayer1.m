@@ -37,6 +37,12 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];

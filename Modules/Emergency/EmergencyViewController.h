@@ -9,13 +9,15 @@
 @end
 
 
-@interface EmergencyViewController : UITableViewController <UIWebViewDelegate> {
+@interface EmergencyViewController : UITableViewController <UIWebViewDelegate,MFMailComposeViewControllerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate> {
     id<EmergencyViewControllerDelegate> delegate;
     
 	BOOL refreshButtonPressed;
     NSString *htmlString;
 	NSString *htmlFormatString;
     UIWebView *infoWebView;
+    UIImagePickerController * imagePicker;
+    MFMailComposeViewController *controller;
 }
 
 - (void)infoDidLoad:(NSNotification *)aNotification;
@@ -26,5 +28,6 @@
 @property (nonatomic, retain) id<EmergencyViewControllerDelegate> delegate;
 @property (nonatomic, retain) NSString *htmlString;
 @property (nonatomic, retain) UIWebView *infoWebView;
-
+@property (nonatomic, retain) UIImagePickerController * imagePicker;
+@property (nonatomic, strong) MFMailComposeViewController *controller;
 @end

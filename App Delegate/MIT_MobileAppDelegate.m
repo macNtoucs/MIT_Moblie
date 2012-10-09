@@ -24,13 +24,13 @@
     
     networkActivityRefCount = 0;
     
-    [self updateBasicServerInfo];
+    //[self updateBasicServerInfo];
     
     // Initialize all modules
     self.modules = [self createModules]; // -createModules defined in ModuleListAdditions category
     
-    [self registerDefaultModuleOrder];
-    [self loadSavedModuleOrder];
+    //[self registerDefaultModuleOrder];
+    //[self loadSavedModuleOrder];
 
 
     MITSpringboard *springboard = [[[MITSpringboard alloc] initWithNibName:nil bundle:nil] autorelease];
@@ -46,22 +46,24 @@
     
     // TODO: don't store state like this when we're using a springboard.
 	// set modules state
+    /*
 	NSDictionary *modulesState = [[NSUserDefaults standardUserDefaults] objectForKey:MITModulesSavedStateKey];
 	for (MITModule *aModule in self.modules) {
 		NSDictionary *pathAndQuery = [modulesState objectForKey:aModule.tag];
 		aModule.currentPath = [pathAndQuery objectForKey:@"path"];
 		aModule.currentQuery = [pathAndQuery objectForKey:@"query"];
 	}
-
+*/
     [self.window setRootViewController:self.rootNavigationController];
     self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:MITImageNameBackground]];
     [self.window makeKeyAndVisible];
-
+/*
     // Override point for customization after view hierarchy is set
     for (MITModule *aModule in self.modules) {
         [aModule applicationDidFinishLaunching];
-    }
-
+    }*/
+    
+    /*
     // Register for push notifications
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
     // get deviceToken if it exists
@@ -78,7 +80,7 @@
 		MITNotification *notification = [MITUnreadNotifications addNotification:apnsDict];
 		[[self moduleForTag:notification.moduleName] handleNotification:notification shouldOpen:YES];
 		DLog(@"Application opened in response to notification=%@", notification);
-	}
+	}*/
     
     return YES;
 }
@@ -129,18 +131,18 @@
 
 - (void)applicationShouldSaveState:(UIApplication *)application {
     // Let each module perform clean up as necessary
-    for (MITModule *aModule in self.modules) {
+   /* for (MITModule *aModule in self.modules) {
         [aModule applicationWillTerminate];
     }
     
 	[self saveModulesState];
     
     // Save preferences
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] synchronize];*/
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-	[self applicationShouldSaveState:application];
+	//[self applicationShouldSaveState:application];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {

@@ -11,13 +11,15 @@
 @implementation EmergencyViewController
 
 @synthesize delegate, htmlString, infoWebView;
-
+@synthesize imagePicker;
+@synthesize controller;
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
     self = [super initWithStyle:style];
     if (self) {
 		refreshButtonPressed = NO;
         infoWebView = nil;
+        controller = [[MFMailComposeViewController alloc] init];
         self.title = @"Emergency Info";
     }
     return self;
@@ -259,7 +261,7 @@
 				cell.secondaryTextLabel.text = [anEntry objectForKey:@"phone"];
                 cell.accessoryView = [UIImageView accessoryViewWithMITType:MITAccessoryViewPhone];
             } else {
-                cell.textLabel.text = @"More Emergency Contacts";
+                cell.textLabel.text = @"拍照＆寄往教官室";
             }
 			
 			return cell;
@@ -270,12 +272,37 @@
     
 }
 
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    //執行取消發送電子郵件畫面的動畫
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+  
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    if ([MFMailComposeViewController canSendMail]) {
+    
+
+    controller.mailComposeDelegate = self;
+    
+    [controller setToRecipients:[NSArray arrayWithObjects:@"mac.ntoucs@gmail.com", nil]];
+    [controller setSubject:@"緊急事件"];
+    
+    [controller setMessageBody:@"[照片]" isHTML:NO];
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [controller addAttachmentData:imageData mimeType:@"image/png" fileName:@"image"];
+    
+    [picker presentModalViewController:controller animated:YES];
+    
+    [controller release];
+    }
+    [picker dismissModalViewControllerAnimated:YES];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
+    
     NSDictionary *anEntry;
     NSString *phoneNumber;
     NSURL *aURL;
@@ -292,12 +319,20 @@
                     [[UIApplication sharedApplication] openURL:aURL];
                 }
             } else {
+                if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                    break;
+                }
+                imagePicker = [UIImagePickerController new];
+                imagePicker.delegate = self;
+                imagePicker.sourceType=UIImagePickerControllerSourceTypeCamera;
+                [self presentModalViewController:imagePicker animated:YES];
+                
                 // show More Emergency Contact drilldown
                 // init its view controller
-                CameraViewController *camera = [[CameraViewController alloc] init];
+               // CameraViewController *camera = [[CameraViewController alloc] init];
                 // push it onto the navigation stack
-                [self.navigationController pushViewController:camera animated:YES];
-                [camera release];
+                //[self.navigationController presentModalViewController:camera animated:YES];
+              //  [camera release];
             }
             break;
         }
